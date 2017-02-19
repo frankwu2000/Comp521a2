@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Cannon_script : MonoBehaviour {
+	public bool Cannon1_switch;
 	public Quaternion BarrelAngle;
 	public GameObject cannon_ball;
+	public Vector2 Cannon_Position;
 	private MeshFilter mf;
 	private bool up;
 	// Use this for initialization
 	void Start () {
-		//making terrain mesh
+		//set up cannon toggle
+		Cannon1_switch = true;
+		//making cannon barrel mesh
 		mf = GetComponent<MeshFilter> ();
 		Mesh mesh = mf.mesh;
 
@@ -42,6 +46,8 @@ public class Cannon_script : MonoBehaviour {
 		GameObject wheel = GameObject.CreatePrimitive(PrimitiveType.Sphere);
 		wheel.transform.localScale = new Vector3 (0.5f,0.5f,0.5f);
 		wheel.transform.position = new Vector3 (-8.2f,2.2f);
+		//get cannon position
+		Cannon_Position = mf.transform.position;
 
 		//wheel rotation boolean
 		up = true;
@@ -53,7 +59,7 @@ public class Cannon_script : MonoBehaviour {
 	void Update () {
 		
 		//cannon will elevate up and down
-		if (mf.transform.rotation.z > 0.7f) {
+		if (mf.transform.rotation.z > 0.45f) {
 			up = false;
 		}
 		if (mf.transform.rotation.z < 0.0f) {
@@ -68,10 +74,10 @@ public class Cannon_script : MonoBehaviour {
 			mf.transform.Rotate (new Vector3(0,0,-15f)*Time.deltaTime);
 		}
 		//cannon ball
-		if (Input.GetKeyDown (KeyCode.Space)) {
+		if (Input.GetKeyDown (KeyCode.Space) && Cannon1_switch) {
 			//get realtime cannon angle
 			BarrelAngle = mf.transform.rotation;
-			Instantiate (cannon_ball);
+			Instantiate (cannon_ball,Cannon_Position,BarrelAngle);
 		}
 
 

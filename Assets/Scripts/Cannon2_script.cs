@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Cannon2_script : MonoBehaviour {
+	public bool Cannon2_switch;
 	public Quaternion BarrelAngle;
+	public GameObject cannon_ball;
+	public Vector2 Cannon2_Position;
 	private MeshFilter mf;
 	private bool up;
 	// Use this for initialization
@@ -42,7 +45,8 @@ public class Cannon2_script : MonoBehaviour {
 		GameObject wheel = GameObject.CreatePrimitive(PrimitiveType.Sphere);
 		wheel.transform.localScale = new Vector3 (0.5f,0.5f,0.5f);
 		wheel.transform.position = new Vector3 (8.2f,2.2f);
-
+		//get cannon position
+		Cannon2_Position = mf.transform.position;
 
 		//wheel rotation boolean
 		up = true;
@@ -52,7 +56,7 @@ public class Cannon2_script : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (mf.transform.rotation.z < -0.7f) {
+		if (mf.transform.rotation.z < -0.45f) {
 			up = false;
 		}
 		if (mf.transform.rotation.z > 0.0f) {
@@ -66,6 +70,11 @@ public class Cannon2_script : MonoBehaviour {
 		if (up) {
 			mf.transform.Rotate (new Vector3(0,0,-15f)*Time.deltaTime);
 		}
-		BarrelAngle = mf.transform.rotation;
+		//cannon ball
+		if (Input.GetKeyDown (KeyCode.Space) && Cannon2_switch) {
+			//get realtime cannon angle
+		//	BarrelAngle = mf.transform.rotation;
+		//	Instantiate (cannon_ball,Cannon2_Position,BarrelAngle);
+		}
 	}
 }

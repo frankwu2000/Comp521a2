@@ -3,18 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class terrain_slope : MonoBehaviour {
-
+	public Mesh mesh;
+	public MeshFilter mf;
 	// Use this for initialization
 	void Start () {
-		MeshFilter mf = GetComponent<MeshFilter> ();
-		Mesh mesh = mf.mesh;
+		//making terrain mesh
+		mf = GetComponent<MeshFilter> ();
+		mesh = mf.mesh;
 
 		//vertices of mesh
 		int mid_vertices = 7;
 		Vector2[] vertices2D = new Vector2[4+mid_vertices+mid_vertices];
 		vertices2D [0] = new Vector2 (-3f, 2); //0, start point of first slope
-		vertices2D [mid_vertices+1] = new Vector2(-1f,6); //1, end point of first slope
-		vertices2D [mid_vertices+2] = new Vector2(1f,6); //2, first point of second slope
+		vertices2D [mid_vertices+1] = new Vector2(-1f,5.5f); //1, end point of first slope
+		vertices2D [mid_vertices+2] = new Vector2(1f,5.5f); //2, first point of second slope
 		vertices2D [vertices2D.Length-1] = new Vector2(3f,2); //2, end point of second slope
 
 		//mid vertices on first slope
@@ -55,6 +57,12 @@ public class terrain_slope : MonoBehaviour {
 		mesh.uv = uvs;
 		mesh.RecalculateNormals();
 
+		//add mesh collider
+//		MeshCollider msh_col = gameObject.AddComponent<MeshCollider>();
+//	msh_col.sharedMesh = mesh;
+//		msh_col.convex = true;
+		PolygonCollider2D pol_col = gameObject.AddComponent<PolygonCollider2D>();
+		pol_col.points = vertices2D;
 	}
 	
 	// Update is called once per frame

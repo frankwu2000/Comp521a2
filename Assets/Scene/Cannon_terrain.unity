@@ -102,9 +102,9 @@ GameObject:
   - component: {fileID: 114438326}
   - component: {fileID: 114438325}
   - component: {fileID: 114438324}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: terrain_Base
-  m_TagString: Untagged
+  m_TagString: terrain_plain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,6 +120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44179e4a3c3b64a2f82860ad16059675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mesh: {fileID: 0}
+  mf: {fileID: 0}
 --- !u!23 &114438325
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -179,6 +181,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 192686165}
+  - component: {fileID: 192686166}
   m_Layer: 0
   m_Name: Cannons
   m_TagString: Untagged
@@ -201,6 +204,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &192686166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 192686164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a372dee67deb744588be9783f65f097d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &299961489
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,7 +274,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11b4ec8225f614c0f8ae4e6aaa01a79e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Cannon2_switch: 0
   BarrelAngle: {x: 0, y: 0, z: 0, w: 0}
+  cannon_ball: {fileID: 1636323142495136, guid: 6440e61e6f09346d8b9d8779cd477fdf,
+    type: 2}
+  Cannon2_Position: {x: 0, y: 0}
 --- !u!33 &406368086
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -386,9 +404,9 @@ GameObject:
   - component: {fileID: 1144940672}
   - component: {fileID: 1144940671}
   - component: {fileID: 1144940670}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: terrain_slope
-  m_TagString: Untagged
+  m_TagString: terrain_slope
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -417,6 +435,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63ab5fa8239ca4bf9bd17c53198cb6a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mesh: {fileID: 0}
+  mf: {fileID: 0}
 --- !u!23 &1144940671
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -584,9 +604,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1000bbf06529e4e72b342127171ec21e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BarrelAngle: 0
+  Cannon1_switch: 0
+  BarrelAngle: {x: 0, y: 0, z: 0, w: 0}
   cannon_ball: {fileID: 1636323142495136, guid: 6440e61e6f09346d8b9d8779cd477fdf,
     type: 2}
+  Cannon_Position: {x: 0, y: 0}
 --- !u!23 &2011356097
 MeshRenderer:
   m_ObjectHideFlags: 0

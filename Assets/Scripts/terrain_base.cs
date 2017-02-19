@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class terrain_base : MonoBehaviour {
-
+	public Mesh mesh;
+	public MeshFilter mf;
 	// Use this for initialization
 	void Start () {
 		//making terrain mesh
-		MeshFilter mf = GetComponent<MeshFilter> ();
-		Mesh mesh = mf.mesh;
+		mf = GetComponent<MeshFilter> ();
+		mesh = mf.mesh;
 
 		//vertices
 		Vector2[] vertices2D = new Vector2[]{
@@ -43,6 +44,9 @@ public class terrain_base : MonoBehaviour {
 		mesh.uv = uvs;
 		mesh.RecalculateNormals();
 
+		//add mesh collider
+		PolygonCollider2D pol_col = gameObject.AddComponent<PolygonCollider2D>();
+		pol_col.points = vertices2D;
 
 	}
 	

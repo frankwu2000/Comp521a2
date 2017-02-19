@@ -22,9 +22,10 @@ GameObject:
   - component: {fileID: 33423306942146236}
   - component: {fileID: 23793660246027170}
   - component: {fileID: 114411689363249910}
+  - component: {fileID: 114709974629108338}
   m_Layer: 0
   m_Name: cannon ball
-  m_TagString: Untagged
+  m_TagString: CannonBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,7 +38,7 @@ Transform:
   m_GameObject: {fileID: 1636323142495136}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.3883996, y: 2.5682673, z: -2.568552}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -91,9 +92,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0fadd1121cad42f49b93455785ea2db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Barrel_angle: 0
-  Init_velocity: {x: 0, y: 0}
+  Ball_hit_slope: 0
   Velocity: {x: 0, y: 0}
-  Gravity: 0
-  Wind: []
-  CurrentWind: 0
+  Position: {x: 0, y: 0}
+  period: 0
+--- !u!114 &114709974629108338
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1636323142495136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7054e42ed7e744377bc1ce0d53655da2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
