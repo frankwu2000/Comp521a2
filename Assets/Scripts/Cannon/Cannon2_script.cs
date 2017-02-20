@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Cannon2_script : MonoBehaviour {
+	public GameObject Goat;
 	public bool Cannon2_switch;
 	public Quaternion BarrelAngle;
 	public GameObject cannon_ball;
@@ -73,8 +74,11 @@ public class Cannon2_script : MonoBehaviour {
 		//cannon ball
 		if (Input.GetKeyDown (KeyCode.Space) && Cannon2_switch) {
 			//get realtime cannon angle
-		//	BarrelAngle = mf.transform.rotation;
-		//	Instantiate (cannon_ball,Cannon2_Position,BarrelAngle);
+			BarrelAngle = mf.transform.rotation;
+			Vector2 Goat_position = Cannon2_Position;
+			Goat_position.x -= 1f;
+			Goat_position.y += 1f;
+			Instantiate (Goat,Goat_position,BarrelAngle);
 		}
 	}
 }

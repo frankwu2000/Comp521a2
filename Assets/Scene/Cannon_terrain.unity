@@ -274,10 +274,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11b4ec8225f614c0f8ae4e6aaa01a79e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Goat: {fileID: 1566061742610556, guid: 19c9b5ce82f5e4853a83f5371a11718b, type: 2}
   Cannon2_switch: 0
   BarrelAngle: {x: 0, y: 0, z: 0, w: 0}
-  cannon_ball: {fileID: 1636323142495136, guid: 6440e61e6f09346d8b9d8779cd477fdf,
-    type: 2}
+  cannon_ball: {fileID: 0}
   Cannon2_Position: {x: 0, y: 0}
 --- !u!33 &406368086
 MeshFilter:

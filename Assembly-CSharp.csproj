@@ -46,15 +46,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Cannon2_script.cs" />
-     <Compile Include="Assets\Scripts\CannonBall.cs" />
-     <Compile Include="Assets\Scripts\CannonCollision.cs" />
-     <Compile Include="Assets\Scripts\Cannon_script.cs" />
-     <Compile Include="Assets\Scripts\TerrainBaseCollision.cs" />
-     <Compile Include="Assets\Scripts\TerrainSlopeCollision.cs" />
-     <Compile Include="Assets\Scripts\Toggle_cannon.cs" />
-     <Compile Include="Assets\Scripts\terrain_base.cs" />
-     <Compile Include="Assets\Scripts\terrain_slope.cs" />
+     <Compile Include="Assets\Scripts\Cannon\Cannon2_script.cs" />
+     <Compile Include="Assets\Scripts\Cannon\CannonBall.cs" />
+     <Compile Include="Assets\Scripts\Cannon\CannonCollision.cs" />
+     <Compile Include="Assets\Scripts\Cannon\Cannon_script.cs" />
+     <Compile Include="Assets\Scripts\Cannon\Toggle_cannon.cs" />
+     <Compile Include="Assets\Scripts\Terrain\TerrainBaseCollision.cs" />
+     <Compile Include="Assets\Scripts\Terrain\TerrainSlopeCollision.cs" />
+     <Compile Include="Assets\Scripts\Terrain\terrain_base.cs" />
+     <Compile Include="Assets\Scripts\Terrain\terrain_slope.cs" />
+     <Compile Include="Assets\Scripts\Verlet\Verlet_Goat.cs" />
      <Compile Include="Assets\Triangulator.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

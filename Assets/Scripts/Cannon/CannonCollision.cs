@@ -6,6 +6,7 @@ public class CannonCollision : MonoBehaviour {
 	public Vector2 old_position;
 	public Vector2 col_velocity;
 	private Vector2 col_position;
+	public Vector2 col_normal;
 	// Use this for initialization
 	void Start () {
 		//store old position;
@@ -41,12 +42,13 @@ public class CannonCollision : MonoBehaviour {
 		}
 		//doing raycast for collision detection 
 		RaycastHit2D hit = Physics2D.Raycast (col_position, col_velocity, 0.22f);
+		col_normal = hit.normal;
 		//if ball hit plain, destroy
-		if (hit.collider.gameObject.tag == "terrain_plain") {
+		if (hit.collider != null && hit.collider.gameObject.tag == "terrain_plain") {
 			Destroy(gameObject);
 		}
 		//if ball hit mountain , handling bouncing in the CannonBall script
-		if (hit.collider.gameObject.tag == "terrain_slope") {
+		if (hit.collider != null && hit.collider.gameObject.tag == "terrain_slope") {
 			BallScript.Ball_hit_slope = true;
 		}
 

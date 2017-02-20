@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CannonBall : MonoBehaviour {
 	//private float BornTime;
-	public bool wind_trigger
+	public bool wind_trigger;
 	public bool Ball_hit_slope;
 	private float Barrel_angle;
 	private Vector2 Init_velocity;
@@ -22,8 +22,6 @@ public class CannonBall : MonoBehaviour {
 	void Start () {
 		//wind trigger : use wind or not
 		wind_trigger = false;
-		//set up the time the ball is created
-		//BornTime = 0;
 		//set up boolean ball hit slope
 		Ball_hit_slope = false;
 		//set up time check for wind, 0.5 sec 
@@ -39,9 +37,6 @@ public class CannonBall : MonoBehaviour {
 		//Cannon1
 		GameObject Cannon1 = GameObject.Find("cannon1");
 		Cannon_script Cannon_script = Cannon1.GetComponent<Cannon_script> ();
-		//Cannon2
-	//	GameObject Cannon2 = GameObject.Find("cannon2");
-	//	Cannon_script Cannon2_script = Cannon2.GetComponent<Cannon2_script> ();
 
 		//get Barrel angle
 		Barrel_angle = Cannon_script.BarrelAngle.eulerAngles.z;
@@ -84,11 +79,16 @@ public class CannonBall : MonoBehaviour {
 			Position = gameObject.transform.position;
 
 		}else {
+			//get collision normal
+			CannonCollision col_script = gameObject.GetComponent<CannonCollision>();
+			Vector2 col_norm = col_script.col_normal;
 			//calculate velocity after bouncing
-			//bouncing coefficient is 0.55
-			Velocity.y = -0.55f*Velocity.y+Gravity * Time.deltaTime;
-			//air resistance
-			Velocity.x = -0.55f*(Velocity.x);
+			//bouncing resititution is 0.6
+//			Velocity.y = -0.6f*Velocity.y+Gravity * Time.deltaTime;
+//			//air resistance
+//			Velocity.x = 0.6f*(Velocity.x);
+			Velocity = Velocity - 0.7f*2*Vector2.Dot(Velocity,col_norm)*col_norm;
+			//Velocity *= 0.5f;
 			//moving cannon ball
 			//gameObject.transform.Translate (Velocity * Time.deltaTime);
 			//get cannon ball position
